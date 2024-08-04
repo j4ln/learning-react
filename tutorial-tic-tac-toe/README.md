@@ -13,3 +13,9 @@ Small Tic-Tac-Toe game built following the [React quick start tutorial](https://
   - Props can be typed inline: `({ value, onSquareClick }: { value: SquareValue; onSquareClick: () => void; })`
   - Or with an `interface` / `type`: `({ value, onSquareClick }: SquareProps)`
 - Conventional to use `onSomething` names for props which represent events and `handleSomething` for the function defentions which handle those events
+- Immutability when changing state
+  - By default, all child components re-render automatically when the state of a parent component changes. Including if they weren't affected by the change. Immutability makes it very cheap for components to compare whether their data has changed or not
+- `key`
+  - List items should always be provided with a `key` so that React can maintain state between re-renders
+  - It's important that the key provided to list items is unique identifies the list item. Most of the time using an array index here is unsuitable
+  - For this project as the moves will never be re-ordered, deleted, or inserted in the middle it's safe to use the move index as our key
